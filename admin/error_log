@@ -1,0 +1,180 @@
+[30-Jan-2026 07:38:25 UTC] PHP Warning:  mysqli::__construct(): (42000/1044): Access denied for user 'ssbgovlk_admin'@'185.162.89.7' to database 'ssbgovlk_database' in /home3/ssbgovlk/public_html/db_connect.php on line 8
+[30-Jan-2026 07:38:32 UTC] PHP Warning:  mysqli::__construct(): (42000/1044): Access denied for user 'ssbgovlk_admin'@'185.162.89.7' to database 'ssbgovlk_database' in /home3/ssbgovlk/public_html/db_connect.php on line 8
+[30-Jan-2026 07:38:32 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home3/ssbgovlk/public_html/admin/login.php:15
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/login.php on line 15
+[30-Jan-2026 07:38:41 UTC] PHP Warning:  mysqli::__construct(): (42000/1044): Access denied for user 'ssbgovlk_admin'@'185.162.89.7' to database 'ssbgovlk_database' in /home3/ssbgovlk/public_html/db_connect.php on line 8
+[30-Jan-2026 07:38:41 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home3/ssbgovlk/public_html/admin/login.php:15
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/login.php on line 15
+[30-Jan-2026 07:43:43 UTC] PHP Warning:  mysqli::__construct(): (42000/1044): Access denied for user 'ssbgovlk_admin'@'185.162.89.7' to database 'ssbgovlk_database' in /home3/ssbgovlk/public_html/db_connect.php on line 8
+[30-Jan-2026 07:43:55 UTC] PHP Warning:  mysqli::__construct(): (42000/1044): Access denied for user 'ssbgovlk_admin'@'185.162.89.7' to database 'ssbgovlk_database' in /home3/ssbgovlk/public_html/db_connect.php on line 8
+[30-Jan-2026 07:43:55 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home3/ssbgovlk/public_html/admin/login.php:15
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/login.php on line 15
+[30-Jan-2026 07:49:52 UTC] PHP Warning:  mysqli::__construct(): (42000/1044): Access denied for user 'ssbgovlk_admin'@'localhost' to database 'ssbgovlk_database' in /home3/ssbgovlk/public_html/db_connect.php on line 8
+[30-Jan-2026 07:49:52 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home3/ssbgovlk/public_html/admin/login.php:15
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/login.php on line 15
+[30-Jan-2026 07:50:03 UTC] PHP Warning:  mysqli::__construct(): (42000/1044): Access denied for user 'ssbgovlk_admin'@'localhost' to database 'ssbgovlk_database' in /home3/ssbgovlk/public_html/db_connect.php on line 8
+[30-Jan-2026 07:50:03 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home3/ssbgovlk/public_html/admin/login.php:15
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/login.php on line 15
+[30-Jan-2026 07:54:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_gallery.php:48
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_gallery.php on line 48
+[30-Jan-2026 07:54:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_gallery.php:48
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_gallery.php on line 48
+[30-Jan-2026 07:54:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_gallery.php:48
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_gallery.php on line 48
+[30-Jan-2026 07:54:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_event_images.php:20
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_event_images.php on line 20
+[30-Jan-2026 07:55:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_event_images.php:20
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_event_images.php on line 20
+[30-Jan-2026 07:59:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_event_images.php:20
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_event_images.php on line 20
+[30-Jan-2026 08:00:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_event_images.php:20
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_event_images.php on line 20
+[30-Jan-2026 08:00:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_event_images.php:20
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_event_images.php on line 20
+[30-Jan-2026 08:02:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_event_images.php:20
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_event_images.php on line 20
+[30-Jan-2026 08:02:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_event_images.php:20
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_event_images.php on line 20
+[30-Jan-2026 09:11:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_event_images.php:20
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_event_images.php on line 20
+[30-Jan-2026 09:14:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_event_images.php:20
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_event_images.php on line 20
+[30-Jan-2026 09:24:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_gallery.php:48
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_gallery.php on line 48
+[07-Feb-2026 18:29:20 UTC] PHP Notice:  Trying to get property 'num_rows' of non-object in /home3/ssbgovlk/public_html/admin/manage_news.php on line 249
+[07-Feb-2026 19:03:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_news.php:255
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_news.php on line 255
+[07-Feb-2026 19:03:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_news.php:255
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_news.php on line 255
+[07-Feb-2026 19:03:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_news.php:255
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_news.php on line 255
+[07-Feb-2026 19:03:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_news.php:255
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_news.php on line 255
+[07-Feb-2026 19:06:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_news.php:255
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_news.php on line 255
+[07-Feb-2026 19:13:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_news.php:255
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_news.php on line 255
+[07-Feb-2026 19:14:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_news.php:255
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_news.php on line 255
+[08-Feb-2026 16:32:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/manage_news.php:257
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/manage_news.php on line 257
+[08-Feb-2026 16:35:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:35:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:35:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:35:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:35:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:35:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:38:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:38:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:38:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:38:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:38:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:38:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:38:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:39:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:39:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:39:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26
+[08-Feb-2026 16:39:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home3/ssbgovlk/public_html/admin/edit_news.php:26
+Stack trace:
+#0 {main}
+  thrown in /home3/ssbgovlk/public_html/admin/edit_news.php on line 26

@@ -1,0 +1,2470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>இலங்கை சமூகப் பாதுகாப்பு வாரியம்</title>
+    <link rel="shortcut icon" href="./assets/images/SSB Logo(Color) .png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <!-- tamil fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@100..900&family=Noto+Serif+Sinhala:wght@100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --navy-blue: #0a192f;
+            --navy-blue-light: #112240;
+            --accent-color: #64ffda;
+            --text-color: #e6f1ff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif, 'Noto Sans Tamil', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* Top contact bar */
+        .contact-bar {
+            background-color: var(--navy-blue);
+            color: var(--text-color);
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .contact-bar i {
+            color: var(--accent-color);
+            margin-right: 6px;
+        }
+
+        .contact-item {
+            margin-right: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--accent-color);
+        }
+
+        /* Main header */
+        .main-header {
+            background-color: var(--navy-blue-light);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo-section img {
+            max-height: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .logo-section img:hover {
+            transform: scale(1.05);
+        }
+
+        /* ---------- NAVBAR BASE ---------- */
+        .navbar {
+            background-color: var(--navy-blue-light);
+            padding: 0;
+            border-top: 1px solid rgba(230, 241, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+        }
+
+        .nav-item {
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav-link {
+            color: var(--text-color) !important;
+            font-weight: 500;
+            padding: 20px 18px !important;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        /* prevent pseudo elements from capturing clicks */
+        .nav-link::before,
+        .nav-link::after {
+            pointer-events: none;
+        }
+
+        /* underline pseudo element */
+        .nav-link:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+        .nav-link:hover:before {
+            width: 100%;
+            opacity: 1;
+        }
+
+        /* ---------- DROPDOWN (default desktop styling) ---------- */
+        .dropdown-menu {
+            background-color: var(--navy-blue);
+            border: none;
+            border-radius: 4px;
+            margin-top: 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            padding: 0;
+            min-width: 200px;
+
+            /* desktop hidden-by-default transition */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            display: block;
+            /* keep in flow for JS toggling */
+            z-index: 1000;
+            pointer-events: auto;
+            /* ensure clickable by default */
+        }
+
+        .dropdown-item {
+            color: var(--text-color);
+            padding: 12px 20px;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(230, 241, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1001;
+            background-color:#0f2a3e;
+            /* ensure items are above menu background */
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--navy-blue-light);
+            color: var(--accent-color);
+            padding-left: 25px;
+        }
+
+        .dropdown-toggle::after {
+            margin-left: 5px;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+
+        /* Utility and search */
+        .utility-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            font-size: 18px;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .lang-selector .dropdown-toggle {
+            background-color: transparent;
+            border: 1px solid rgba(230, 241, 255, 0.2);
+            color: var(--text-color);
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-selector .dropdown-toggle:hover {
+            background-color: rgba(230, 241, 255, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        /* mobile toggle hide/show default */
+        .mobile-menu-toggle {
+            color: var(--text-color);
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+        }
+
+        /* ---------- DESKTOP HOVER ONLY (>=992px) ---------- */
+        @media (min-width: 992px) {
+            .desktop-nav {
+                display: block;
+                position: static;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+
+            .dropdown:hover .dropdown-toggle::after {
+                transform: rotate(180deg);
+            }
+        }
+
+        /* ---------- MOBILE STYLES (<992px) ---------- */
+        @media (max-width: 991.98px) {
+
+            /* main nav (collapsed) */
+            .desktop-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--navy-blue);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                z-index: 10050;
+                /* raised to ensure nothing overlays it */
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .desktop-nav.show {
+                display: block;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-item {
+                display: block;
+                margin: 0;
+                border-bottom: 1px solid rgba(230, 241, 255, 0.05);
+            }
+
+            .nav-link {
+                padding: 15px 20px !important;
+            }
+
+            /* Mobile dropdown collapse using max-height for smooth animation */
+            .desktop-nav .dropdown-menu {
+                position: relative;
+                /* keep in flow and avoid overlay issues */
+                background-color: rgba(0, 0, 0, 0.04);
+                /* subtle background */
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                margin: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.28s ease;
+                display: block;
+                /* keep in flow */
+                pointer-events: auto !important;
+                /* ensure clicks pass through */
+                z-index: 10060;
+                /* above other content */
+            }
+
+            /* Open state (either parent .dropdown.show or the menu itself .show) */
+            .desktop-nav .dropdown.show>.dropdown-menu,
+            .desktop-nav .dropdown-menu.show {
+                max-height: 1200px;
+                /* larger to accommodate many items if needed */
+            }
+
+            /* ensure hover rules don't interfere on mobile */
+            .dropdown:hover .dropdown-menu {
+                pointer-events: none;
+            }
+
+            .utility-section {
+                padding: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .search-btn {
+                margin-bottom: 15px;
+            }
+
+            /* language dropdown placement */
+            .lang-selector .dropdown-menu {
+                min-width: 120px;
+                right: 0;
+                left: auto;
+            }
+
+            /* Make sure anchor tags inside dropdown fill the area and are clickable */
+            .desktop-nav .dropdown-menu a,
+            .desktop-nav .dropdown-item {
+                display: block;
+                width: 100%;
+                cursor: pointer;
+                pointer-events: auto;
+            }
+
+            /* If some other element overlays the nav, this helps ensure nav is top-most */
+            body> :not(.navbar):not(.desktop-nav) {
+                position: relative;
+                z-index: 0;
+            }
+        }
+
+
+        /* Animation classes */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .slide-down {
+            animation: slideDown 0.5s ease forwards;
+        }
+
+        /* Home page specific styles */
+        .banner-container {
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .banner-image {
+            width: 100%;
+            display: block;
+            transition: all 0.4s ease;
+        }
+
+        .banner-container:hover .banner-image {
+            opacity: 0.8;
+            filter: brightness(0.7);
+        }
+
+        .text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 0;
+            height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            opacity: 0;
+        }
+
+        .banner-title {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .banner-container:hover .text-overlay {
+            padding: 15px;
+            height: auto;
+            opacity: 1;
+            background-color: rgba(6, 2, 55, 0.162);
+            ;
+        }
+
+        .contact-section {
+            font-family: Arial, sans-serif;
+            color: #003366;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .contact-section h2 {
+            font-size: 24px;
+            color: #0055A4;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #0055A4;
+            display: inline-block;
+        }
+
+        .contact-section .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .contact-section .contact-item .icon {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #0073e6;
+            min-width: 30px;
+        }
+
+        .contact-section .contact-item div {
+            line-height: 1.5;
+        }
+
+        .map-container {
+            max-width: 600px;
+            margin: 20px auto;
+            border: 2px solid #ddd;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin: 20px auto;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn-primary {
+            background-color: var(--navy-blue);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            color: var(--navy-blue);
+        }
+
+        /* services and scheme */
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 15px;
+        }
+
+        .services-title {
+            text-align: center;
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 40px;
+            font-weight: normal;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-image {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+        }
+
+        .service-image img {
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+        }
+
+        .service-logo {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 60px;
+            height: 60px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-logo {
+            transform: rotate(5deg);
+        }
+
+        .service-title-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-title-overlay {
+            transform: translateY(0);
+        }
+
+        .service-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .service-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        .service-button {
+            display: inline-block;
+            background-color: #0a2240;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .service-button:hover {
+            background-color: #153a62;
+        }
+
+        .service-card {
+            perspective: 1000px;
+            height: 300px;
+        }
+
+        .service-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .service-card:hover .service-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .service-card-front,
+        .service-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card-front {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card-back {
+            transform: rotateY(180deg);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: var(--navy-blue-light);
+            color: white;
+        }
+
+        .service-title {
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .service-card-back h3 {
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .service-card-back p {
+            margin-bottom: 20px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        /* video section */
+        .video-card {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .card-body {
+            padding: 1.25rem;
+        }
+
+        .video-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-description {
+            color: #6c757d;
+            font-size: 0.875rem;
+        }
+
+        /* contact details */
+        .info-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            font-weight: 10;
+            color: var(--dark-text);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -12px;
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .details-container {
+            padding: 30px;
+        }
+
+        .detail-item {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .icon-wrapper {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(37, 99, 235, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--primary-color);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .text-content h5 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark-text);
+        }
+
+        .text-content p {
+            margin-bottom: 0;
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+
+        .info-link {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .info-link:hover {
+            color: var(--primary-color);
+        }
+
+        .map-wrapper {
+            height: 100%;
+            min-height: 400px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        @media (max-width: 991.98px) {
+            .map-wrapper {
+                margin-top: 30px;
+                min-height: 350px;
+            }
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: var(--navy-blue);
+            color: var(--text-color);
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Noto Sans Tamil', 'Noto Serif Sinhala';
+        }
+
+        .footer-top {
+            background-color: var(--navy-blue-light);
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-widget h5 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            color: var(--accent-color);
+        }
+
+        .footer-widget h5:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .footer-links a:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 20px;
+        }
+
+        .footer-links a:hover:before {
+            left: 5px;
+            opacity: 1;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-info i {
+            color: var(--accent-color);
+            margin-right: 10px;
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-color);
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            color: var(--navy-blue);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            margin-top: 20px;
+        }
+
+        .newsletter-form .input-group {
+            border-radius: 50px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 3px;
+        }
+
+        .newsletter-form input {
+            background-color: transparent;
+            border: none;
+            padding: 10px 15px;
+            color: var(--text-color);
+            font-size: 14px;
+        }
+
+        .newsletter-form input:focus {
+            box-shadow: none;
+            background-color: transparent;
+            color: var(--text-color);
+        }
+
+        .newsletter-form button {
+            background-color: var(--accent-color);
+            border: none;
+            color: var(--navy-blue);
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #55d9bb;
+            transform: translateX(3px);
+        }
+
+        .footer-bottom {
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+        }
+
+        .copyright {
+            color: #ccc;
+        }
+
+        .powered-by {
+            color: #ccc;
+            text-align: center;
+        }
+
+        .made-with {
+            text-align: right;
+            color: #ccc;
+        }
+
+        .made-with i {
+            color: #e25555;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.1);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            75% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .footer-logo {
+            max-height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            color: var(--navy-blue);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 767.98px) {
+            .footer-widget {
+                margin-bottom: 30px;
+            }
+
+            .footer-bottom .row div {
+                text-align: center !important;
+                margin-bottom: 10px;
+            }
+        }
+
+        /* hero section */
+        .hero-section {
+            padding: 1%;
+            background: linear-gradient(to right, #f8fafc, #f1f5f9);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgba(147, 51, 234, 0.1);
+            z-index: 0;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: rgba(245, 158, 11, 0.1);
+            z-index: 0;
+        }
+
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .about-text {
+            color: var(--text-body);
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .info-card {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .info-card p {
+            color: var(--text-body);
+            margin-bottom: 0;
+        }
+
+        .image-container {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.03);
+        }
+
+        .services-section {
+            padding: 80px 0;
+            background-color: white;
+            position: relative;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #7e22ce;
+            border-color: #7e22ce;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(147, 51, 234, 0.3);
+        }
+
+        @media (max-width: 991.98px) {
+            .hero-section {
+                padding: 6px 0;
+            }
+
+            .image-container {
+                margin-top: 2rem;
+            }
+        }
+
+        .banner-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            overflow: hidden;
+            width: 0;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            animation: typing 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            text-align: center;
+            letter-spacing: 0.5px;
+            color: var(--text-color);
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.7);
+
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: #6366f1
+            }
+        }
+
+        /* Search bar coding */
+        .utility-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-form {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #1e293b;
+            border-radius: 5px;
+            padding: 10px;
+            width: 300px;
+            display: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .search-form.active {
+            display: block;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #2d3748;
+            color: white;
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #3b82f6;
+        }
+
+        .search-results {
+            margin-top: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .result-item {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #374151;
+        }
+
+        .result-item:hover {
+            background-color: #374151;
+        }
+
+        .no-results {
+            padding: 10px;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* For demonstration - adds content to the page */
+        .content {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Utility class to match your existing code */
+        .d-none {
+            display: none;
+        }
+
+        .d-lg-flex {
+            display: flex;
+        }
+
+        @media (max-width: 99px) {
+            .d-none.d-lg-flex {
+                display: none !important;
+            }
+
+            .digital-clock-container {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+        }
+
+        .digital-clock-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .digital-clock {
+            background: rgba(10, 25, 47, 0.8);
+            border-radius: 8px;
+            padding: 10px 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2),
+                inset 0 0 15px rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            color: var(--accent-color);
+            font-family: 'Orbitron', sans-serif;
+            line-height: 1.2;
+            min-width: 200px;
+        }
+
+        .time-section {
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.6);
+            letter-spacing: 2px;
+            margin-bottom: 2px;
+        }
+
+        .date-section {
+            font-size: 0.85rem;
+            text-align: center;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        #ampm {
+            font-size: 0.9rem;
+            margin-left: 5px;
+            vertical-align: text-top;
+            opacity: 0.9;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .digital-clock-container {
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+
+            .row>div {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+                text-align: center !important;
+                margin-bottom: 15px;
+            }
+
+            .digital-clock-container {
+                justify-content: center;
+            }
+        }
+
+        /* --- Search section --- */
+        .utility-section {
+            align-items: center;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        /* 🔍 Larger clickable area */
+        .search-btn {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.4rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .search-form {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+            opacity: 0;
+            transform: scale(0.9);
+            pointer-events: none;
+            transition: all 0.3s ease;
+            width: 260px;
+            z-index: 1000;
+        }
+
+        .search-form.active {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+
+        .search-input {
+            width: 100%;
+            border: 1px solid #ccc;
+            padding: 7px 10px;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .search-results {
+            margin-top: 8px;
+            border-top: 1px solid #ddd;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 8px 10px;
+            text-decoration: none;
+            color: #333;
+            border-radius: 5px;
+            transition: background 0.2s ease;
+        }
+
+        .search-result-item:hover {
+            background: #f0f0f0;
+            text-decoration: none;
+        }
+
+        .no-results {
+            padding: 8px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 992px) {
+            .footer-links li {
+                margin-bottom: 2px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-links li {
+                margin-bottom: 2px;
+            }
+
+            .theme-title {
+                font-size: 30px;
+            }
+        }
+
+
+        .quick-action-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            height: 100%;
+            text-align: center;
+        }
+
+        .quick-action-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(100, 255, 218, 0.15);
+            background: linear-gradient(135deg, #f8f9fa 0%, #f0f5ff 100%);
+        }
+
+        .action-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 32px;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .quick-action-card:hover .action-icon {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #55d9bb 100%);
+            color: var(--navy-blue);
+            transform: scale(1.1);
+        }
+
+        .quick-action-card h5 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--navy-blue);
+        }
+
+        .quick-action-card p {
+            font-size: 13px;
+            color: #666;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .quick-action-card {
+                padding: 25px 15px;
+            }
+
+            .action-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+
+            .quick-action-card h5 {
+                font-size: 16px;
+            }
+
+            .quick-action-card p {
+                font-size: 12px;
+            }
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        /* Make sure we load Orbitron font for the clock */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    </style>
+</head>
+
+<body>
+    <!-- Top Contact Bar -->
+    <div class="contact-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <span class="contact-item"><i class="fas fa-phone-alt"></i>+94 112 886 585 - 86</span>
+                    <span class="contact-item"><i class="fas fa-envelope"></i>info@ssb.gov.lk</span>
+                    <span class="contact-item d-none d-md-inline-block"><i class="fas fa-clock"></i>திங்கள் – வெள்ளி:
+                        காலை 8:30 – மாலை 4:15</span>
+                </div>
+                <div class="col-md-4 d-none d-md-block">
+                    <span class="contact-item float-end" id="time">
+                        <i class="fas fa-clock"></i>
+                    </span>
+                    <script>
+                        const dateElement = document.getElementById('time');
+                        setInterval(() => {
+                            const now = new Date();
+                            const time = now.toLocaleTimeString();
+                            dateElement.innerText = time;
+                        }, 1000);
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header with Logo -->
+    <header class="main-header fade-in">
+        <div class="container">
+            <div class="row align-items-center d-flex d-lg-block">
+
+                <!-- Logo (Center - 40%) -->
+                <div class="col-lg-12 text-center logo-section d-lg-block d-flex align-items-center justify-content-center mx-auto"
+                    style="flex: 0 0 40%; max-width: 50%; align-self: center;">
+                    <img src="assets/images/ssbwithtxt.png" alt="Sri Lanka Social Security Board Logo"
+                        class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg slide-down">
+        <div class="container position-relative">
+            <!-- Mobile Brand and Toggle -->
+            <div class="d-flex justify-content-between align-items-center w-100 d-lg-none">
+                <a class="navbar-brand text-white text-sm-start" href="#">
+                    முகப்பு</a>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index_tam.html">
+                            முகப்பு</a>
+                    </li>
+
+                    <li class="nav-item dropdown d-lg-block">
+                        <a class="nav-link dropdown-toggle" href="#" role="button">
+                            பற்றி
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="vision_mission_tam.html">தொலைநோக்கு மற்றும் பணி</a></li>
+                            <li><a class="dropdown-item" href="gov_leaders_tam.html">அரசாங்க தலைவர்கள்</a></li>
+                            <li><a class="dropdown-item" href="board_of_directors_tam.html">இயக்குனர்கள் குழு</a></li>
+                            <li><a class="dropdown-item" href="management_team_tam.html">மேலாண்மை குழு</a></li>
+                            <li><a class="dropdown-item" href="social_security_div_tam.html">சமூக பாதுகாப்பு பிரிவு</a>
+                            </li>
+                            <li><a class="dropdown-item" href="admin_div_tam.html">நிர்வாகப் பிரிவு</a></li>
+                            <li><a class="dropdown-item" href="finance_div_tam.html">நிதிப் பிரிவு</a></li>
+                            <li><a class="dropdown-item" href="internal_audit_tam.html">உள் தணிக்கைப் பிரிவு</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button">
+                            சேவைகள்
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="services_tam.html">முன்னேற்றம்</a></li>
+                            <li><a class="dropdown-item" href="scheme_tam.html">திட்டங்கள்</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="application_tam.html">பதிவிறக்கங்கள்</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery_tam.php">தொகுப்பு</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="right_to_informarion_tam.html">தகவல் உரிமை</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="news_tam.php">செய்தி</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact_tam.html">தொடர்பு</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="careers_tam.html">தொழில்கள்</a>
+                    </li>
+                </ul>
+
+                <!-- Search and Language on Mobile -->
+                <div class="utility-section d-lg-none">
+                    <div class="dropdown lang-selector">
+                        <a class="btn btn-secondary" href="index_tam.html">தமிழ்</a>
+                        <a class="btn btn-secondary" href="index.html">English</a>
+                        <a class="btn btn-secondary" href="index_sin.html">සිංහල</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Section (Desktop only) -->
+            <div class="utility-section d-none d-lg-flex">
+                <div class="search-container">
+                    <button class="search-btn" onclick="toggleSearch()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div class="search-form" id="search-form">
+                        <input type="text" class="search-input" id="search-input" placeholder="Search..."
+                            autocomplete="off">
+                        <div class="search-results" id="search-results"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="dropdown lang-selector d-none d-lg-block">
+                <button class="btn dropdown-toggle" type="button" id="desktopLangDropdown" data-bs-toggle="dropdown">
+                    <i class="fas fa-globe me-1"></i> தமிழ்
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./index.html">English</a></li>
+                    <li><a class="dropdown-item" href="./index_sin.html">සිංහල</a></li>
+                    <li><a class="dropdown-item" href="./index_tam.html">தமிழ்</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Row 3: Banner with Animation -->
+    <div class="banner-container col" style="max-width: 100%;">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-interval="1">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./carasoul/Home Banner 01.jpg" class="d-block w-100" alt="..."
+                        style="width: 100vw; height: auto;">
+                </div>
+                <div class="carousel-item">
+                    <img src="carasoul/Home Banner 02.jpg" class="d-block w-100" alt="..."
+                        style="width: 100vw; height: auto;">
+                </div>
+                <div class="carousel-item">
+                    <img src="carasoul/Home Banner 03.jpg" class="d-block w-100" alt="..."
+                        style="width: 100vw; height: auto;">
+                </div>
+                <div class="carousel-item">
+                    <img src="./carasoul/Home Banner 04.jpg" class="d-block w-100" alt="..."
+                        style="width: 100vw; height: auto;">
+                </div>
+                <div class="carousel-item">
+                    <img src="./carasoul/Home Banner 06.jpg" class="d-block w-100" alt="..."
+                        style="width: 100vw; height: auto;">
+                </div>
+                <div class="carousel-item">
+                    <img src="./carasoul/Home Banner 05.jpg" class="d-block w-100" alt="..."
+                    style="width: 100vw;">
+                </div>
+                <div class="carousel-item">
+                    <img src="./carasoul/Home Banner 07.jpg" class="d-block w-100" alt="..."
+                    style="width: 100vw;">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <br>
+    <div class="container">
+        <section class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <!-- <h1 class="section-title">இலங்கை சமூகப் பாதுகாப்பு வாரியம்</h1> -->
+                        <p class="about-text" style="text-align: justify;">
+                            1996 ஆம் ஆண்டு நாடாளுமன்றச் சட்டத்தின் மூலம் நிறுவப்பட்டு, பின்னர் 1999 ஆம் ஆண்டு 33 ஆம் எண்
+                            சட்டத்தால் திருத்தப்பட்ட
+                            <span class="highlight">இலங்கை சமூகப் பாதுகாப்பு வாரியம்,</span> அரசாங்க ஓய்வூதியத்திற்கு
+                            தகுதியற்றவர்களுக்கு ஓய்வூதியம் மற்றும் சமூகப் பாதுகாப்பு சலுகைகளை வழங்குகிறது.
+                        </p>
+                        <div class="info-card mb-8">
+                            <h3>உறுப்பினர் அதனைப் பெற்றுக்கொள்வது எப்படி</h3>
+                            <p>
+                                சங்கத்தில் உள்ள எந்தவொரு உறுப்பினரும் இலங்கை சமூகப் பாதுகாப்பு வாரியத்தின் தலைமை
+                                அலுவலகம், மாவட்ட அலுவலகங்கள் மற்றும் பிரதேச செயலக அலுவலகங்கள் அல்லது கிராம அலுவலர்கள்
+                                அல்லது இலங்கை சமூகப் பாதுகாப்பு வாரியத்தால் பொறுப்பு ஒப்படைக்கப்பட்டுள்ள வேறு எந்த
+                                அதிகாரியிடமிருந்தும் பெற்றுக் கொள்ளளாம்.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container my-5">
+        <section class="hero-section" style="padding: 2% 0;">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <!-- Button 1: Apply for Benefits -->
+                    <div class="col-12 col-md-3">
+                        <a href="https://socialsecurity.lk/Scholer/" target="_blank" rel="noopener noreferrer"
+                            class="quick-action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h5>நன்மைகளுக்கு விண்ணப்பிக்கவும்</h5>
+                            <p>இன்று உங்கள் விண்ணப்பத்தைத் தொடங்கவும்</p>
+                        </a>
+                    </div>
+
+                    <!-- Button 2: Login to SSB -->
+                    <div class="col-12 col-md-3">
+                        <a href="https://socialsecurity.lk/ssbsys/" target="_blank" rel="noopener noreferrer"
+                            class="quick-action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-sign-in-alt"></i>
+                            </div>
+                            <h5>டிஜிட்டல் SSB இல் உள்நுழைக</h5>
+                            <p>உங்கள் கணக்கை அணுகவும்</p>
+                        </a>
+                    </div>
+
+                    <!-- Button 3: Knowledge Hub -->
+                    <div class="col-12 col-md-3">
+                        <a href="knowledge_hub_tam.html" target="_blank" rel="noopener noreferrer"
+                            class="quick-action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h5>அறிவு மையம்</h5>
+                            <p>சமூக பாதுகாப்பு பற்றி மேலும் அறிக</p>
+                        </a>
+                    </div>
+
+                    <!-- Button 4: Articles -->
+                    <div class="col-12 col-md-3">
+                        <a href="articles_tam.html" rel="noopener noreferrer" class="quick-action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-pen-fancy"></i>
+                            </div>
+                            <h5>உறுப்பினர் கட்டுரைகள்</h5>
+                            <p>நமது சமூகத்தால் எழுதப்பட்டது</p>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--Row 7: Video Section-->
+    <div class="container text-dark my-5">
+        <!-- <h2 class="text-center">Video Section</h2><br> -->
+        <div class="row">
+            <!-- Video Card 1 -->
+            <div class="col-md-6 mb-6">
+                <div class="video-card shadow-lg rounded">
+                    <div class="video-container">
+                        <!-- <video src="./videos/45-01.mp4" controls preload="none" width="100%"></video> -->
+                        <iframe src="https://www.youtube.com/embed/3XNI_TASMKA?si=PJmaZmTXUyaAhQwt"
+                            title="YouTube video player" loading="lazy" preload="none"
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="video-title">சுரேகுமா ஓய்வூதியத் திட்டம்</h5>
+                        <p class="video-description text-muted">
+                            சுரேகுமா என்பது அதன் உறுப்பினர்களுக்கு பாதுகாப்பான எதிர்காலத்தை வழங்கும் ஒரு சமூக பாதுகாப்பு
+                            திட்டம் ஆகும்.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Video Card 2 -->
+            <div class="col-md-6 mb-6">
+                <div class="video-card shadow-lg rounded">
+                    <div class="video-container">
+                        <!-- <video src="./videos/45-02.mp4" controls preload="none" width="100%"></video> -->
+                        <iframe src="https://www.youtube.com/embed/IsQxcLP6uEk?si=1gg7D8nHH6QWktgw"
+                            title="YouTube video player" loading="lazy"
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="video-title">அரசாவா ஓய்வூதிய முன் திட்டத் </h5>
+                        <p class="video-description text-muted">அரசாவா என்பது அதன் உறுப்பினர்களுக்கு ஓய்வுபெறும் வயதில்
+                            நிதி பாதுகாப்பை வழங்கும் ஓர் ஓய்வூதிய திட்டமாகும்.</p>
+                        <!-- <button class="btn btn-outline-primary btn-sm mt-2"
+              onclick="window.open('https://youtu.be/3XNI_TASMKA?si=MP6rh4BnlIpR5952', '_blank')">
+              <i class="fas fa-play-circle me-1"></i>Watch Now
+            </button> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Card 3 -->
+            <!-- <div class="col-md-4 mb-4">
+        <div class="video-card shadow-lg rounded">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/blK9A7rkzsY?si=rDOwcZsiv450ULVp" title="YouTube video player"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="card-body">
+            <h5 class="video-title">Insurance Coverage Guide</h5>
+            <p class="video-description text-muted">Understanding our insurance coverage options.</p>
+            <button class="btn btn-outline-primary btn-sm mt-2"
+              onclick="window.open('https://youtu.be/blK9A7rkzsY?si=TSdrpIDLwELQ3qFL', '_blank')">
+              <i class="fas fa-play-circle me-1"></i>Watch Now
+            </button>
+          </div>
+        </div>
+      </div> -->
+
+        </div>
+    </div>
+
+    <!-- Row 5: Services and Schemes -->
+    <div class="services-container">
+        <h2 class="services-title"> சேவைகள் மற்றும் திட்டங்கள்</h2>
+
+        <div class="services-grid">
+            <!-- Pension Plan Card -->
+            <div class="service-card">
+                <div class="service-card-inner">
+                    <div class="service-card-front">
+                        <div class="service-image">
+                            <img src="assets/images/Surekuma.jpg" alt="Family representing Pension Plan">
+                        </div>
+                        <div class="service-title">சுரெகும <p class="small">ஓய்வூதியத் திட்டம்</p>
+                        </div>
+                    </div>
+                    <div class="service-card-back">
+                        <h3>சுரெகும</h3>
+                        <p>“சுரெகும” திட்டம் 18–59 வயதுடைய தனிநபர்களுக்குக் கிடைக்கிறது, இது அவர்களின் ஓய்வூதிய காலம்,
+                            கட்டணத் தொகை மற்றும் கட்டண விருப்பங்களைத் தேர்வுசெய்ய அனுமதிக்கிறது. ஓய்வூதிய கொடுப்பனவுகள்
+                            60 வயதில் தொடங்குகின்றன.</p>
+                        <a href="surekuma_tam.html" class="service-button">மேலும் அறிய</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pension Plan Card -->
+            <div class="service-card">
+                <div class="service-card-inner">
+                    <div class="service-card-front">
+                        <div class="service-image">
+                            <img src="assets/images/Arassawa.jpg" alt="Family representing Pension Plan">
+                        </div>
+                        <div class="service-title">ஆரஸ்ஸாவ <p class="small">ஓய்வூதிய முன் திட்டத்</p>
+                        </div>
+                    </div>
+                    <div class="service-card-back">
+                        <h3>ஆரஸ்ஸாவ</h3>
+                        <p style="font-size: 11px;">“ஆரஸ்ஸாவ” திட்டம் என்பது 18 வயதுக்குட்பட்ட குழந்தைகளுக்கான
+                            முன்கூட்டியே திட்டமிடப்பட்ட ஓய்வூதியத் திட்டமாகும். குழந்தை 18 வயதை அடையும் வரை
+                            பங்களிப்புகள் அவர்களின் பாதுகாவலர்களால் செய்யப்படுகின்றன, அதன் பிறகு உறுப்பினர் தானாகவே
+                            “சுரேகுமா” திட்டத்திற்கு மாற்றப்படுவார்கள்.</p>
+                        <a href="arassawa_tam.html" class="service-button">மேலும் அறிய</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+
+        <div class="services-grid">
+            <!-- Insurance Card -->
+            <div class="service-card">
+                <div class="service-card-inner">
+                    <div class="service-card-front">
+                        <div class="service-image">
+                            <img src="assets/images/Kalakaru.jpg" alt="Family representing Insurance">
+                        </div>
+                        <div class="service-title">கலாகரு<p class="small">ஓய்வூதியத் திட்டம்</p>
+                        </div>
+                    </div>
+                    <div class="service-card-back">
+                        <h3>கலாகரு</h3>
+                        <p>"கலாகரு" திட்டம் 23–55 வயதுடைய கலைஞர்களுக்கு தனிப்பயனாக்கக்கூடிய ஓய்வூதியத் திட்டத்தையும்
+                            அவர்களின் முதல் ஓய்வூதியத்துடன் செலுத்தப்படும் ரூ. 50,000 நிலையான வைப்புத்தொகையையும்
+                            வழங்குகிறது.</p>
+                        <a href="kalakaru_tam.html" class="service-button">மேலும் அறிய</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefits Card -->
+            <div class="service-card">
+                <div class="service-card-inner">
+                    <div class="service-card-front">
+                        <div class="service-image">
+                            <img src="assets/images/Navikaya.jpg" alt="Family representing Benefits">
+                        </div>
+                        <div class="service-title">நாவிகயா  <p class="small">சமூகப் பாதுகாப்புத் திட்டம்</p>
+                        </div>
+                    </div>
+                    <div class="service-card-back">
+                        <h3>நாவிகயா  </h3>
+                        <p>இலங்கையின் கடல்சார் தொழிலாளர் மாநாடு 2006 மற்றும் 1971 ஆம் ஆண்டின் 52 ஆம் எண் வணிகக் கப்பல்
+                            சட்டத்தின் கீழ் கடற்படையினருக்கான ஒரு சமூகப் பாதுகாப்புத் திட்டம்.</p>
+                        <a href="navikaya_tam.html" class="service-button">மேலும் அறிய</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contribution Card -->
+            <div class="service-card">
+                <div class="service-card-inner">
+                    <div class="service-card-front">
+                        <div class="service-image">
+                            <img src="assets/images/Vigamanika.jpg" alt="Family representing Contribution">
+                        </div>
+                        <div class="service-title">புலம்பெயர்ந்த தொழிலாளர்களை<p class="small">பணியமர்த்தும் திட்டம்</p>
+                        </div>
+                    </div>
+                    <div class="service-card-back">
+                        <h3 style="font-size: large;">விகமாணிகா</h3>
+                        <p style="font-size: 11px;">“விகாமணிகா” திட்டம் 18–59 வயதுடைய புலம்பெயர்ந்த தொழிலாளர்களுக்காக
+                            வடிவமைக்கப்பட்டுள்ளது. உறுப்பினர்கள் வெளிநாட்டில் பணிபுரியும் காலத்தின் அடிப்படையில் கட்டண
+                            விருப்பங்களைத் தேர்ந்தெடுக்கலாம், மேலும் இவ் ஓய்வூதியம் 60 வயதில் தொடங்குகிறது. ஓய்வூதியத்
+                            தொகை மற்றும் கட்டண முறை உறுப்பினர் தேர்ந்தெடுக்களாம்.</p>
+                        <a href="vigamanika_tam.html" class="service-button">மேலும் அறிய</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="info-section">
+        <div class="container">
+            <h2>தொடர்பு கொள்ளுங்கள்</h2>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="info-card">
+                        <div class="details-container">
+                            <!-- Address -->
+                            <div class="detail-item">
+                                <div class="icon-wrapper">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="text-content">
+                                    <h5>முகவரி</h5>
+                                    <p>எண்.18, “சமாஜ அரக்‌ஷன் பியாச”<br>
+                                        ராஜகிரிய சாலை,<br>
+                                        ராஜகிரிய.</p>
+                                </div>
+                            </div>
+
+                            <!-- Phone Numbers -->
+                            <div class="detail-item">
+                                <div class="icon-wrapper">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="text-content">
+                                    <h5>தொலைபேசி எண்கள்</h5>
+                                    <p><a href="tel:+94112886585" class="info-link">+94 112 88 65 85 - 86</a></p>
+                                </div>
+                            </div>
+
+                            <!-- Hotline Numbers -->
+                            <div class="detail-item">
+                                <div class="icon-wrapper">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <div class="text-content">
+                                    <h5>ஹாட்லைன் எண்கள்</h5>
+                                    <p><a href="tel:+94112886088" class="info-link">+94 112 88 60 88</a></p>
+                                </div>
+                            </div>
+
+                            <!-- WhatsApp -->
+                            <div class="detail-item">
+                                <div class="icon-wrapper">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="text-content">
+                                    <h5>வாட்ஸ்அப்</h5>
+                                    <p><a href="https://wa.me/94771443044" class="info-link">+94 771 44 30 44</a></p>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="detail-item">
+                                <div class="icon-wrapper">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="text-content">
+                                    <h5>மின்னஞ்சல்</h5>
+                                    <p><a href="mailto:info@ssb.gov.lk" class="info-link">info@ssb.gov.lk</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9984591807!2d79.89999!3d6.900027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae259a9e3d8a4a3%3A0x1d91a86dea5c8d6d!2sRajagiriya%20Rd%2C%20Sri%20Jayawardenepura%20Kotte!5e0!3m2!1sen!2slk!4v1650000000000!5m2!1sen!2slk"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <!-- Footer Top Area -->
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <!-- About Widget -->
+                    <div class="col-lg-3 col-md-6 footer-widget">
+                        <img src="./assets/images/logo.jpg" alt="Sri Lanka Social Security Board Logo"
+                            class="footer-logo" style="width: 80px; height:200px;">
+                        <p class="text mb-4" style="text-align: justify;"> நிலையான மற்றும் புதுமையான சமூகப் பாதுகாப்புத்
+                            திட்டங்கள் மூலம் அனைத்து குடிமக்களுக்கும் சமூகப் பாதுகாப்பு மற்றும் நலனை உறுதி செய்வதற்கு
+                            இலங்கை சமூகப் பாதுகாப்பு வாரியம் அர்ப்பணிக்கப்பட்டுள்ளது.</p>
+                        <div class="social-links">
+                            <a href="https://web.facebook.com/ssb.gov.lk?mibextid=ZbWKwL&_rdc=1&_rdr#"
+                                target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="mailto:info@ssb.gov.lk" target="_blank"><i class="fas fa-envelope"></i></a>
+                            <a href="https://www.youtube.com/@slsosebo" target="_blank"><i
+                                    class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/sri_lanka_social_security_boar/" target="_blank"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links Widget -->
+                    <div class="col-lg-3 col-md-6 footer-widget">
+                        <h5>விரைவு இணைப்புகள்</h5>
+                        <ul class="footer-links">
+                            <li><a href="about.html">எங்களைப் பற்றி</a></li>
+                            <li><a href="scheme.html">எங்கள் சேவைகள்</a></li>
+                            <li><a href="scheme.html#surekuma-scheme">சுரெகும திட்டம்</a></li>
+                            <li><a href="scheme.html#arassawa-scheme">ஆரஸ்ஸாவ திட்டம்</a></li>
+                            <li><a href="scheme.html#manusavi-scheme">விகமாணிகா திட்டம்</a></li>
+                            <li><a href="news.php">செய்திகள் & நிகழ்வுகள்</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Useful Links Widget -->
+                    <div class="col-lg-3 col-md-6 footer-widget">
+                        <h5>பயனுள்ள இணைப்புகள்</h5>
+                        <ul class="footer-links">
+                            <li><a href="right_to_informarion.html">தகவல் உரிமை</a></li>
+                            <li><a href="careers.html">தொழில்கள்</a></li>
+                            <li><a href="about.html">அடிக்கடி கேட்கப்படும் கேள்விகள்</a></li>
+                            <!-- <li><a href="#">Privacy Policy</a></li> -->
+                            <li><a href="scheme.html">சேவை விதிமுறைகள்</a></li>
+                            <li><a href="contact.html">தள வரைபடம்</a></li>
+                            <li><a href="https://stateminsamurdhi.gov.lk/" target="_blank">அமைச்சக வலைத்தளம்</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info Widget -->
+                    <div class="col-lg-3 col-md-6 footer-widget">
+                        <h5>எங்களைத் தொடர்பு கொள்ளவும்</h5>
+                        <div class="contact-info">
+                            <p><i class="fas fa-map-marker-alt"></i>எண்.18, “சமாஜ அரக்‌ஷன் பியாச” <br>
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ராஜகிரிய சாலை, <br>
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ராஜகிரிய.</p>
+                            <p><i class="fas fa-phone-alt"></i> +94 112 886 585 - 86</p>
+                            <p><i class="fas fa-envelope"></i> info@ssb.gov.lk</p>
+                            <p><i class="fas fa-clock"></i> திங்கள் – வெள்ளி: காலை 8:30 – மாலை 4:15</p>
+                        </div>
+                        <div class="newsletter-form">
+                            <a href="https://cleansrilanka.gov.lk/" target="_blank" rel="noopener noreferrer">
+                                <img src="./assets/images/Clean Sri Lanka Logo.png" alt="NewsLetter Image"
+                                    class="img-thumbnail" style="width: 200px; height: auto; margin-top: 10px;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Area -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <div class="copyright">
+                            Copyright © 2025 Sri Lanka Social Security Board
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="powered-by">
+                            Powered by Sri Lanka Social Security Board
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="made-with">
+                            Made with <i class="fas fa-heart"></i> by Department of Information Technology, Faculty of
+                            Humanities &
+                            Social Sciences, University of Ruhuna
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Top Button -->
+        <div class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </footer>
+    <!-- chat bot -->
+      <script id="messenger-widget-b" src="https://cdn.botpenguin.com/website-bot.js" defer>68ef1a6c163de854554fecda,68ef19b7cb64f686dfb5b548</script>
+      <!-- accessibility -->
+      <script src="https://app.embed.im/accessibility.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sample search data - replace with your actual data
+        // const searchData = [
+        //   { title: "Home Page", url: "/home" },
+        //   { title: "About Us", url: "/about" },
+        //   { title: "Services", url: "/services" },
+        //   { title: "Products", url: "/products" },
+        //   { title: "Contact Us", url: "/contact" },
+        //   { title: "Blog", url: "/blog" },
+        //   { title: "Support", url: "/support" },
+        //   { title: "Frequently Asked Questions", url: "/faq" }
+        // ];
+
+        // const searchForm = document.getElementById('search-form');
+        // const searchInput = document.getElementById('search-input');
+        // const searchResults = document.getElementById('search-results');
+        // let isSearchActive = false;
+
+        // function toggleSearch() {
+        //   searchForm.classList.toggle('active');
+        //   isSearchActive = !isSearchActive;
+        // }
+
+        // searchInput.addEventListener('input', function () {
+        //   const query = this.value.toLowerCase().trim();
+
+        //   if (query === '') {
+        //     searchResults.innerHTML = '';
+        //     return;
+        //   }
+
+        //   const filteredResults = searchData.filter(item =>
+        //     item.title.toLowerCase().includes(query)
+        //   );
+
+        //   displayResults(filteredResults, query);
+        // });
+
+        // function displayResults(results, query) {
+        //   searchResults.innerHTML = '';
+
+        //   if (results.length === 0) {
+        //     searchResults.innerHTML = `<div class="no-results">No results found for "${query}"</div>`;
+        //   } else {
+        //     results.forEach(item => {
+        //       const resultItem = document.createElement('div');
+        //       resultItem.className = 'result-item';
+        //       resultItem.textContent = item.title;
+        //       resultItem.onclick = function () {
+        //         window.location.href = item.url;
+        //       };
+        //       searchResults.appendChild(resultItem);
+        //     });
+        //   }
+        // }
+
+        // Close search when clicking outside
+        document.addEventListener('click', function (event) {
+            if (!searchForm.contains(event.target) && isSearchActive) {
+                searchForm.classList.remove('active');
+                isSearchActive = false;
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const desktopNav = document.querySelector('.desktop-nav');
+
+            mobileToggle.addEventListener('click', function () {
+                desktopNav.classList.toggle('show');
+                this.innerHTML = desktopNav.classList.contains('show')
+                    ? '<i class="fas fa-times"></i>'
+                    : '<i class="fas fa-bars"></i>';
+            });
+
+            // Handle dropdowns on mobile
+            if (window.innerWidth < 992) {
+                const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+                dropdownToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        const dropdownMenu = this.nextElementSibling;
+                        dropdownMenu.classList.toggle('show');
+                    });
+                });
+            }
+
+            // Search button animation
+            const searchBtn = document.querySelector('.search-btn');
+            let isSearchOpen = false;
+
+            searchBtn.addEventListener('click', function () {
+                if (!isSearchOpen) {
+                    this.innerHTML = '<i class="fas fa-times"></i>';
+                    isSearchOpen = true;
+                    // Here you would typically show a search form
+                } else {
+                    this.innerHTML = '<i class="fas fa-search"></i>';
+                    isSearchOpen = false;
+                    // Here you would typically hide the search form
+                }
+            });
+
+            // Highlight active menu item
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+
+        function changeLanguage(language) {
+            document.getElementById('desktopLangDropdown').innerHTML = `<i class="fas fa-globe me-1"></i> ${language}`;
+            document.getElementById('mobileLangDropdown').innerHTML = `<i class="fas fa-globe me-1"></i> ${language}`;
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            // Back to top button functionality
+            const backToTopBtn = document.querySelector('.back-to-top');
+
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Optional: Close search when clicking outside
+        document.addEventListener('click', function (event) {
+            const form = document.getElementById('search-form');
+            const button = document.querySelector('.search-btn');
+            if (!form.contains(event.target) && !button.contains(event.target)) {
+                form.classList.remove('active');
+            }
+        });
+
+        const searchData = [
+            { title: "Home Page", url: "/home" },
+            { title: "About Us", url: "/about" },
+            { title: "Services", url: "/services" },
+            { title: "Products", url: "/products" },
+            { title: "Contact Us", url: "/contact" },
+            { title: "Blog", url: "/blog" },
+            { title: "Support", url: "/support" },
+            { title: "Frequently Asked Questions", url: "/faq" }
+        ];
+
+        const searchForm = document.getElementById("search-form");
+        const searchInput = document.getElementById("search-input");
+        const searchResults = document.getElementById("search-results");
+
+        // Show/hide search form
+        function toggleSearch() {
+            searchForm.classList.toggle("active");
+            if (searchForm.classList.contains("active")) {
+                searchInput.focus();
+            }
+        }
+
+        // Live search function
+        searchInput.addEventListener("input", function () {
+            const query = this.value.toLowerCase();
+            searchResults.innerHTML = "";
+
+            if (query.trim() === "") return;
+
+            const filtered = searchData.filter(item =>
+                item.title.toLowerCase().includes(query)
+            );
+
+            if (filtered.length === 0) {
+                searchResults.innerHTML = `<div class="no-results">No results found</div>`;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const link = document.createElement("a");
+                link.classList.add("search-result-item");
+                link.textContent = item.title;
+                link.href = item.url; // ✅ clickable link
+                searchResults.appendChild(link);
+            });
+        });
+
+        // Close search form when clicking outside
+        document.addEventListener("click", function (e) {
+            if (!searchForm.contains(e.target) && !e.target.closest(".search-btn")) {
+                searchForm.classList.remove("active");
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

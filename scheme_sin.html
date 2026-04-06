@@ -1,0 +1,2077 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Social Schemes - Social Security Board</title>
+    <link rel="shortcut icon" href="./assets/images/SSB Logo(Color) .png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- sinhala fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Gemunu+Libre:wght@200..800&family=Noto+Serif+Sinhala:wght@100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --navy-blue: #0a192f;
+            --navy-blue-light: #112240;
+            --accent-color: #64ffda;
+            --text-color: #e6f1ff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif, 'noto serif sinhala', 'abhaya libre', 'gemunu libre';
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* Top contact bar */
+        .contact-bar {
+            background-color: var(--navy-blue);
+            color: var(--text-color);
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .contact-bar i {
+            color: var(--accent-color);
+            margin-right: 6px;
+        }
+
+        .contact-item {
+            margin-right: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--accent-color);
+        }
+
+        /* Main header */
+        .main-header {
+            background-color: var(--navy-blue-light);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo-section img {
+            max-height: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .logo-section img:hover {
+            transform: scale(1.05);
+        }
+
+        /* ---------- NAVBAR BASE ---------- */
+        .navbar {
+            background-color: var(--navy-blue-light);
+            padding: 0;
+            border-top: 1px solid rgba(230, 241, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+        }
+
+        .nav-item {
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav-link {
+            color: var(--text-color) !important;
+            font-weight: 500;
+            padding: 20px 18px !important;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        /* prevent pseudo elements from capturing clicks */
+        .nav-link::before,
+        .nav-link::after {
+            pointer-events: none;
+        }
+
+        /* underline pseudo element */
+        .nav-link:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+        .nav-link:hover:before {
+            width: 100%;
+            opacity: 1;
+        }
+
+        /* ---------- DROPDOWN (default desktop styling) ---------- */
+        .dropdown-menu {
+            background-color: var(--navy-blue);
+            border: none;
+            border-radius: 4px;
+            margin-top: 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            padding: 0;
+            min-width: 200px;
+
+            /* desktop hidden-by-default transition */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            display: block;
+            /* keep in flow for JS toggling */
+            z-index: 1000;
+            pointer-events: auto;
+            /* ensure clickable by default */
+        }
+
+        .dropdown-item {
+            color: var(--text-color);
+            padding: 12px 20px;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(230, 241, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1001;
+            background-color:#0f2a3e;
+            /* ensure items are above menu background */
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--navy-blue-light);
+            color: var(--accent-color);
+            padding-left: 25px;
+        }
+
+        .dropdown-toggle::after {
+            margin-left: 5px;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+
+        /* Utility and search */
+        .utility-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            font-size: 18px;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .lang-selector .dropdown-toggle {
+            background-color: transparent;
+            border: 1px solid rgba(230, 241, 255, 0.2);
+            color: var(--text-color);
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-selector .dropdown-toggle:hover {
+            background-color: rgba(230, 241, 255, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        /* mobile toggle hide/show default */
+        .mobile-menu-toggle {
+            color: var(--text-color);
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+        }
+
+        /* ---------- DESKTOP HOVER ONLY (>=992px) ---------- */
+        @media (min-width: 992px) {
+            .desktop-nav {
+                display: block;
+                position: static;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+
+            .dropdown:hover .dropdown-toggle::after {
+                transform: rotate(180deg);
+            }
+        }
+
+        /* ---------- MOBILE STYLES (<992px) ---------- */
+        @media (max-width: 991.98px) {
+
+            /* main nav (collapsed) */
+            .desktop-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--navy-blue);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                z-index: 10050;
+                /* raised to ensure nothing overlays it */
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .desktop-nav.show {
+                display: block;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-item {
+                display: block;
+                margin: 0;
+                border-bottom: 1px solid rgba(230, 241, 255, 0.05);
+            }
+
+            .nav-link {
+                padding: 15px 20px !important;
+            }
+
+            /* Mobile dropdown collapse using max-height for smooth animation */
+            .desktop-nav .dropdown-menu {
+                position: relative;
+                /* keep in flow and avoid overlay issues */
+                background-color: rgba(0, 0, 0, 0.04);
+                /* subtle background */
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                margin: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.28s ease;
+                display: block;
+                /* keep in flow */
+                pointer-events: auto !important;
+                /* ensure clicks pass through */
+                z-index: 10060;
+                /* above other content */
+            }
+
+            /* Open state (either parent .dropdown.show or the menu itself .show) */
+            .desktop-nav .dropdown.show>.dropdown-menu,
+            .desktop-nav .dropdown-menu.show {
+                max-height: 1200px;
+                /* larger to accommodate many items if needed */
+            }
+
+            /* ensure hover rules don't interfere on mobile */
+            .dropdown:hover .dropdown-menu {
+                pointer-events: none;
+            }
+
+            .utility-section {
+                padding: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .search-btn {
+                margin-bottom: 15px;
+            }
+
+            /* language dropdown placement */
+            .lang-selector .dropdown-menu {
+                min-width: 120px;
+                right: 0;
+                left: auto;
+            }
+
+            /* Make sure anchor tags inside dropdown fill the area and are clickable */
+            .desktop-nav .dropdown-menu a,
+            .desktop-nav .dropdown-item {
+                display: block;
+                width: 100%;
+                cursor: pointer;
+                pointer-events: auto;
+            }
+
+            /* If some other element overlays the nav, this helps ensure nav is top-most */
+            body> :not(.navbar):not(.desktop-nav) {
+                position: relative;
+                z-index: 0;
+            }
+        }
+
+
+        /* Animation classes */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .slide-down {
+            animation: slideDown 0.5s ease forwards;
+        }
+
+
+        /* Footer Styles */
+        .footer {
+            background-color: var(--navy-blue);
+            color: var(--text-color);
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'noto serif sinhala', 'abhaya libre', 'gemunu libre';
+        }
+
+        .footer-top {
+            background-color: var(--navy-blue-light);
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-widget h5 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            color: var(--accent-color);
+        }
+
+        .footer-widget h5:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .footer-links a:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 20px;
+        }
+
+        .footer-links a:hover:before {
+            left: 5px;
+            opacity: 1;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-info i {
+            color: var(--accent-color);
+            margin-right: 10px;
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-color);
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            color: var(--navy-blue);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            margin-top: 20px;
+        }
+
+        .newsletter-form .input-group {
+            border-radius: 50px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 3px;
+        }
+
+        .newsletter-form input {
+            background-color: transparent;
+            border: none;
+            padding: 10px 15px;
+            color: var(--text-color);
+            font-size: 14px;
+        }
+
+        .newsletter-form input:focus {
+            box-shadow: none;
+            background-color: transparent;
+            color: var(--text-color);
+        }
+
+        .newsletter-form button {
+            background-color: var(--accent-color);
+            border: none;
+            color: var(--navy-blue);
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #55d9bb;
+            transform: translateX(3px);
+        }
+
+        .footer-bottom {
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+        }
+
+        .copyright {
+            color: var(--text-muted);
+        }
+
+        .powered-by {
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .made-with {
+            text-align: right;
+            color: var(--text-muted);
+        }
+
+        .made-with i {
+            color: #e25555;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.1);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            75% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .footer-logo {
+            max-height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            color: var(--navy-blue);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 767.98px) {
+            .footer-widget {
+                margin-bottom: 30px;
+            }
+
+            .footer-bottom .row div {
+                text-align: center !important;
+                margin-bottom: 10px;
+            }
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .theme {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            background: linear-gradient(#0a192f, #112240);
+            /* background-image: url('s4.jpg'); */
+        }
+
+        .theme::before {
+            background-image: url('assets/images/scheme.jpg');
+            display: flex;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            /* z-index: -1; */
+            animation: zoom 20s infinite alternate;
+        }
+
+        .theme-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .theme-title {
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            letter-spacing: 2px;
+            animation: fadeInUp 1.2s ease-out forwards, glow 3s infinite alternate;
+        }
+
+        .theme-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0, 90, 170, 0.7) 0%, rgba(0, 40, 85, 0.7) 50%);
+            z-index: 1;
+        }
+
+        .theme-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes zoom {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            }
+
+            100% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(0, 150, 255, 0.8);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-500px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        .info-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+            height: 100%;
+            background-color: #ECEBFF;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background-color: var(--navy-blue);
+            color: white;
+            padding: 1.5rem;
+            border-bottom: 3px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header h2 {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            z-index: 1;
+        }
+
+        .card-body {
+            padding: 2rem;
+            background-color: rgba(26, 10, 251, 0.084);
+            color: #072d58;
+        }
+
+        .option-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .option-item:last-child {
+            border-bottom: none;
+        }
+
+        .option-item:hover {
+            transform: translateX(10px);
+            color: var(black);
+        }
+
+        .option-icon {
+            background-color: var(--navy-blue-lighter);
+            color: rgb(78, 21, 247);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn ease-in 1;
+            animation-fill-mode: forwards;
+            animation-duration: 0.5s;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .animate-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scheme-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            position: relative;
+        }
+
+        .scheme-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .scheme-header {
+            background-color: var(--navy-blue);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scheme-logo {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin: 0 auto;
+            display: block;
+            background-color: white;
+            padding: 10px;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+            border: 3px solid var(--accent);
+        }
+
+        .scheme-name {
+            font-weight: 600;
+            margin-top: 1rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .scheme-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            z-index: 1;
+        }
+
+        .scheme-body {
+            padding: 1.5rem;
+            color: #444;
+        }
+
+        .scheme-description {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            height: 180px;
+            overflow-y: auto;
+        }
+
+        .btn-read-more {
+            background-color: var(--navy-blue);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-read-more:hover {
+            background-color: var(--accent);
+            color: var(--navy-blue);
+            transform: scale(1.05);
+        }
+
+        .btn-read-more::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .btn-read-more:hover::before {
+            left: 100%;
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn ease-in 1;
+            animation-fill-mode: forwards;
+            animation-duration: 0.5s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .digital-clock-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .digital-clock {
+            background: rgba(10, 25, 47, 0.8);
+            border-radius: 8px;
+            padding: 10px 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2),
+                inset 0 0 15px rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            color: var(--accent-color);
+            font-family: 'Orbitron', sans-serif;
+            line-height: 1.2;
+            min-width: 200px;
+        }
+
+        .time-section {
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.6);
+            letter-spacing: 2px;
+            margin-bottom: 2px;
+        }
+
+        .date-section {
+            font-size: 0.85rem;
+            text-align: center;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        #ampm {
+            font-size: 0.9rem;
+            margin-left: 5px;
+            vertical-align: text-top;
+            opacity: 0.9;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .digital-clock-container {
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+
+            .row>div {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+                text-align: center !important;
+                margin-bottom: 15px;
+            }
+
+            .digital-clock-container {
+                justify-content: center;
+            }
+        }
+
+        /* --- Search section --- */
+        .utility-section {
+            align-items: center;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        /* 🔍 Larger clickable area */
+        .search-btn {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.4rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .search-form {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+            opacity: 0;
+            transform: scale(0.9);
+            pointer-events: none;
+            transition: all 0.3s ease;
+            width: 260px;
+            z-index: 1000;
+        }
+
+        .search-form.active {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+
+        .search-input {
+            width: 100%;
+            border: 1px solid #ccc;
+            padding: 7px 10px;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .search-results {
+            margin-top: 8px;
+            border-top: 1px solid #ddd;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            padding: 8px 10px;
+            text-decoration: none;
+            color: #333;
+            border-radius: 5px;
+            transition: background 0.2s ease;
+        }
+
+        .search-result-item:hover {
+            background: #f0f0f0;
+            text-decoration: none;
+        }
+
+        .no-results {
+            padding: 8px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 992px) {
+            .footer-links li {
+                margin-bottom: 2px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-links li {
+                margin-bottom: 2px;
+            }
+
+            .theme-title {
+                font-size: 30px;
+            }
+        }
+
+        /* Make sure we load Orbitron font for the clock */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    </style>
+</head>
+
+<body>
+    <!-- Top Contact Bar -->
+    <div class="contact-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <span class="contact-item"><i class="fas fa-phone-alt"></i>+94 112 886 585 - 86</span>
+                    <span class="contact-item"><i class="fas fa-envelope"></i>info@ssb.gov.lk</span>
+                    <span class="contact-item d-none d-md-inline-block"><i class="fas fa-clock"></i>සඳුදා - සිකුරාදා:
+                        පෙ.ව. 8:30 - ප.ව. 4:15</span>
+                </div>
+                <div class="col-md-4 d-none d-md-block">
+                    <span class="contact-item float-end" id="time">
+                        <i class="fas fa-clock"></i>
+                    </span>
+                    <script>
+                        const dateElement = document.getElementById('time');
+                        setInterval(() => {
+                            const now = new Date();
+                            const time = now.toLocaleTimeString();
+                            dateElement.innerText = time;
+                        }, 1000);
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header with Logo -->
+    <header class="main-header fade-in">
+        <div class="container">
+            <div class="row align-items-center d-flex d-lg-block">
+
+                <!-- Logo (Center - 40%) -->
+                <div class="col-lg-12 text-center logo-section d-lg-block d-flex align-items-center justify-content-center mx-auto"
+                    style="flex: 0 0 40%; max-width: 50%; align-self: center;">
+                    <img src="assets/images/ssbwithtxt.png" alt="Sri Lanka Social Security Board Logo"
+                        class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg slide-down">
+        <div class="container position-relative">
+            <!-- Mobile Brand and Toggle -->
+            <div class="d-flex justify-content-between align-items-center w-100 d-lg-none">
+                <a class="navbar-brand text-white text-sm-start" href="#">මුල් පිටුව</a>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index_sin.html">මුල් පිටුව</a>
+                    </li>
+
+                    <li class="nav-item dropdown d-lg-block">
+                        <a class="nav-link dropdown-toggle" href="#" role="button">
+                            අප ගැන
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="vision_mission_sin.html">දැක්ම සහ මෙහෙවර</a></li>
+                            <li><a class="dropdown-item" href="gov_leaders_sin.html">රාජ්‍ය නිලධාරීන්</a></li>
+                            <li><a class="dropdown-item" href="board_of_directors_sin.html">අධ්‍යක්ෂක මණ්ඩලය</a></li>
+                            <li><a class="dropdown-item" href="management_team_sin.html">මණ්ඩලයේ කළමනාකාරීත්වය</a></li>
+                            <li><a class="dropdown-item" href="social_security_div_sin.html">සමාජ ආරක්ෂණ අංශය</a></li>
+                            <li><a class="dropdown-item" href="admin_div_sin.html">පරිපාලන අංශය</a></li>
+                            <li><a class="dropdown-item" href="finance_div_sin.html">මුදල් අංශය</a></li>
+                            <li><a class="dropdown-item" href="internal_audit_sin.html">අභ්‍යන්තර විගණන අංශය</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button">
+                            සේවාවන්
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="services_sin.html">ප්‍රගතිය</a></li>
+                            <li><a class="dropdown-item" href="scheme_sin.html">විශ්‍රාම වැටුප් යෝජනා ක්‍රම</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="application_sin.html">භාගත කිරීම්</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery_sin.php">මාධ්‍ය ගැලරිය</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="right_to_informarion_sin.html">තොරතුරු දැනගැනීමේ අයිතිය</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="news_sin.php">පුවත්</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact_sin.html">අමතන්න</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="careers_sin.html">රැකියා පුරප්පාඩු</a>
+                    </li>
+                </ul>
+
+                <!-- Search and Language on Mobile -->
+                <div class="utility-section d-lg-none">
+                    <div class="dropdown lang-selector">
+                        <a class="btn btn-secondary" href="scheme_sin.html">සිංහල</a>
+                        <a class="btn btn-secondary" href="scheme.html">English</a>
+                        <a class="btn btn-secondary" href="scheme_tam.html">தமிழ்</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Section (Desktop only) -->
+            <div class="utility-section d-none d-lg-flex">
+                <div class="search-container">
+                    <button class="search-btn" onclick="toggleSearch()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div class="search-form" id="search-form">
+                        <input type="text" class="search-input" id="search-input" placeholder="Search..."
+                            autocomplete="off">
+                        <div class="search-results" id="search-results"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="dropdown lang-selector d-none d-lg-block">
+                <button class="btn dropdown-toggle" type="button" id="desktopLangDropdown" data-bs-toggle="dropdown">
+                    <i class="fas fa-globe me-1"></i> සිංහල
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./scheme.html">English</a></li>
+                    <li><a class="dropdown-item" href="./scheme_sin.html">සිංහල</a></li>
+                    <li><a class="dropdown-item" href="./scheme_tam.html">தமிழ்</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <br>
+    <!-- About Us Banner -->
+    <div class="theme">
+        <div class="theme-overlay"></div>
+        <div class="theme-particles" id="particles"></div>
+        <div class="silhouette"></div>
+        <div class="theme-content">
+            <h1 class="theme-title">විශ්‍රාම වැටුප් යෝජනා ක්‍රම</h1>
+        </div>
+    </div><br><br>
+    <!-- Content -->
+
+    <div class="container">
+        <div class="row">
+            <!-- Enrollment Section -->
+            <div class="col-lg-6 mb-4">
+                <div class="info-card animate-on-scroll">
+                    <div class="card-header">
+                        <h2><i class="fas fa-user-plus me-2"></i> බදවා ගැනීම සිදු කළ හැකි ස්ථාන,</h2>
+                    </div>
+                    <div class="card-body">
+                        <ul class="option-list">
+                            <li class="option-item animate-on-scroll">
+                                <div class="option-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <span>ග්‍රාම නිලධාරී</span>
+                            </li>
+                            <li class="option-item animate-on-scroll">
+                                <div class="option-icon">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <span>සමෘද්ධි සංවර්ධන නිලධාරි</span>
+                            </li>
+                            <li class="option-item animate-on-scroll">
+                                <div class="option-icon">
+                                    <i class="fas fa-landmark"></i>
+                                </div>
+                                <span>ප්‍රාදේශීය ලේකම් කාර්යාලය</span>
+                            </li>
+                            <li class="option-item animate-on-scroll">
+                                <div class="option-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <span>SLSSB – දිස්ත්රික් කාර්යාලය</span>
+                            </li>
+                            <li class="option-item animate-on-scroll">
+                                <div class="option-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <span>SLSSB – ප්‍රධාන කාර්යාලය</span>
+                            </li>
+                            <li class="option-item animate-on-scroll">
+                                <div class="option-icon">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <span>SLSSB විසින් බලයලත් අනෙකුත් නිලධාරීන්</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Collection Section -->
+            <div class="col-lg-6 mb-4">
+                <div class="info-card animate-on-scroll">
+                    <div class="card-header">
+                        <h2><i class="fas fa-money-bill-wave me-2"></i> වාරිකයන් ගෙවිය හැකි ස්ථාන,</h2>
+                    </div>
+                    <div class="card-body">
+                        <ul class="option-list">
+                            <li class="option-item animate-on-scroll">
+                                <div class="option-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <span>රජයේ බැංකුව – (ලංකා බැංකුව, මහජන බැංකුව, ජාතික ඉතිරි කිරීමේ බැංකුව)</span>
+                            </li>
+                            <li class="option-item animate-on-scroll">
+                                <div class="option-icon">
+                                    <i class="fas fa-mail-bulk"></i>
+                                </div>
+                                <span>තැපැල් කාර්යාලය</span>
+                            </li>
+                            <li class="option-item animate-on-scroll">
+                                <div class="option-icon">
+                                    <i class="fas fa-id-card"></i>
+                                </div>
+                                <span>බලයලත් ග්‍රාම නිලධාරී</span>
+                            </li>
+                            <li class="option-item animate-on-scroll">
+                                <div class="option-icon">
+                                    <i class="fas fa-landmark"></i>
+                                </div>
+                                <span>ප්‍රාදේශීය ලේකම් කාර්යාලය</span>
+                            </li>
+                            <li class="option-item animate-on-scroll">
+                                <div class="option-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <span>SLSSB – දිස්ත්‍රික් කාර්යාලය</span>
+                            </li>
+                            <li class="option-item animate-on-scroll">
+                                <div class="option-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <span>SLSSB – ප්‍රධාන කාර්යාලය</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bank Account Details Section -->
+        <div class="row mt-5 mb-4">
+            <div class="col-12">
+                <div class="info-card animate-on-scroll">
+                    <div class="card-header">
+                        <h2><i class="fas fa-university me-2"></i>බැංකු ගිණුම් තොරතුරු</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Peoples' Bank -->
+                            <div class="col-lg-6 mb-4">
+                                <div class="bank-account-item">
+                                    <div class="bank-header">
+                                        <h4>මහජන බැංකුව </h4>
+                                    </div>
+                                    <ul class="bank-details">
+                                        <li><span class="detail-label">ගිණුමේ නම:</span>ශ්‍රී ලංකා සමාජ ආරක්ෂණ මණ්ඩලය
+                                        </li>
+                                        <li><span class="detail-label">ගිණුම් අංකය:</span> 174 100 140 350 212</li>
+                                        <li><span class="detail-label">බැංකු ශාඛාව:</span> නුගේගොඩ</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Bank of Ceylon -->
+                            <div class="col-lg-6 mb-4">
+                                <div class="bank-account-item">
+                                    <div class="bank-header">
+                                        <h4>ලංකා බැංකුව</h4>
+                                    </div>
+                                    <ul class="bank-details">
+                                        <li><span class="detail-label">ගිණුමේ නම:</span>ශ්‍රී ලංකා සමාජ ආරක්ෂණ මණ්ඩලය
+                                        </li>
+                                        <li><span class="detail-label">ගිණුම් අංකය:</span> 228073</li>
+                                        <li><span class="detail-label">බැංකු ශාඛාව:</span> නුගේගොඩ</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- National Saving Bank -->
+                            <div class="col-lg-6 mb-4">
+                                <div class="bank-account-item">
+                                    <div class="bank-header">
+                                        <h4>ජාතික ඉතිරි කිරීමේ බැංකුව</h4>
+                                    </div>
+                                    <ul class="bank-details">
+                                        <li><span class="detail-label">ගිණුමේ නම:</span>ශ්‍රී ලංකා සමාජ ආරක්ෂණ මණ්ඩලය
+                                        </li>
+                                        <li><span class="detail-label">ගිණුම් අංකය:</span> 1-0-111-010-7557</li>
+                                        <li><span class="detail-label">බැංකු ශාඛාව:</span> නාවල</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Regional Development Bank -->
+                            <div class="col-lg-6 mb-4">
+                                <div class="bank-account-item">
+                                    <div class="bank-header">
+                                        <h4>ප්‍රාදේශීය සංවර්ධන බැංකුව</h4>
+                                    </div>
+                                    <ul class="bank-details">
+                                        <li><span class="detail-label">ගිණුමේ නම:</span>ශ්‍රී ලංකා සමාජ ආරක්ෂණ මණ්ඩලය
+                                        </li>
+                                        <li><span class="detail-label">ගිණුම් අංකය:</span> 135011100464</li>
+                                        <li><span class="detail-label">බැංකු ශාඛාව:</span> නුගේගොඩ </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Peoples' Bank for Migrant Scheme -->
+                            <div class="col-lg-6 mb-4">
+                                <div class="bank-account-item special-scheme">
+                                    <div class="bank-header">
+                                        <h4>මහජන බැංකුව <span class="badge" style="color: #072d58;">(විගමනික විශ්‍රාම
+                                                වැටුප් යෝජනා ක්‍රමය සඳහා)</span></h4>
+                                    </div>
+                                    <ul class="bank-details">
+                                        <li><span class="detail-label">ගිණුමේ නම:</span>ශ්‍රී ලංකා සමාජ ආරක්ෂණ මණ්ඩලය
+                                        </li>
+                                        <li><span class="detail-label">ගිණුම් අංකය:</span> 174 402 140 350 212 </li>
+                                        <li><span class="detail-label">SWIFT කේතය:</span> PSBKLKLX023</li>
+                                        <li><span class="detail-label">බැංකු ශාඛාව:</span> නුගේගොඩ</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call To Action -->
+        <div class="row mt-4">
+            <div class="col-12 text-center animate-on-scroll">
+                <div class="card bg-light p-4">
+                    <h3 class="text-navy-blue mb-3">ඔබගේ ලියාපදිංචිය සම්බන්ධයෙන් උදව් අවශ්‍යද?</h3>
+                    <p>ඕනෑම ප්‍රශ්නයක් සඳහා අපගේ පාරිභෝගික සේවා කණ්ඩායම ඔබට සහය වීමට සූදානම් වේ.</p>
+                    <a href="contact_sin.html" style="text-decoration: none;">
+                        <button class="btn btn-primary"
+                            style="background-color: var(--navy-blue); border-color: var(--navy-blue);">
+                            අප හා සම්බන්ධ වන්න
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+            <!-- Surekuma Scheme -->
+            <div class="col animate-on-scroll" data-delay="100" id="surekuma-scheme">
+                <div class="scheme-card">
+                    <div class="scheme-header">
+                        <img src="assets/images/Surekuma.png" alt="Surekuma Logo" class="scheme-logo">
+                        <h3 class="scheme-name">සුරැකුම</h3><br>
+                    </div>
+                    <div class="scheme-body">
+                        <div class="scheme-description">
+                            <p>"සුරැකුම "යෝජනා ක්‍රමය වයස අවුරුදු 18 - 59 අතර අයටයි. සාමාජිකයින්ට ඕනෑම ඕනෑම මුදලක් සඳහා
+                                සම්බන්ධ විය හැක.
+                                විශ්‍රාම වැටුප් ප්‍රමාණය සහ ගෙවීමේ විකල්පය සාමාජිකයාට ඔවුන්ගේ කැමැත්ත මත තීරණය කළ හැක
+                            </p>
+                        </div>
+                        <a href="surekuma_sin.html" style="text-decoration: none;">
+                            <button class="btn-read-more">
+                                <i class="fas fa-info-circle me-2"></i> වැඩිදුරටත්
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arassawa Scheme -->
+            <div class="col animate-on-scroll" data-delay="200" id="arassawa-scheme">
+                <div class="scheme-card">
+                    <div class="scheme-header">
+                        <img src="assets/images/Arassawa.png" alt="Arassawa Logo" class="scheme-logo">
+                        <h3 class="scheme-name">ආරස්සාව</h3><br>
+                    </div>
+                    <div class="scheme-body">
+                        <div class="scheme-description">
+                            <p>“අරස්සාව” යෝජනා ක්‍රමය වයස අවුරුදු 18 ට අඩු ළමුන් සඳහා පූර්ව සැලසුම් විශ්‍රාම වැටුප්
+                                ක්‍රමයකි. දරුවා වයස අවුරුදු 18 සම්පූර්ණ වන විට, ඔවුන් ස්වයංක්‍රීයව 'සුරැකුම' යෝජනා
+                                ක්‍රමයට මාරු වේ. භාරකාරත්වය යටතේ සාමාජිකත්වය ලබා දෙන අතර ගෙවීම් කළ යුත්තේ වයස අවුරුදු 18
+                                දක්වා පමණි.</p>
+                        </div>
+                        <a href="arassawa_sin.html" style="text-decoration: none;">
+                            <button class="btn-read-more">
+                                <i class="fas fa-info-circle me-2"></i> වැඩිදුරටත්
+                            </button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manusavi Scheme -->
+            <div class="col animate-on-scroll" data-delay="300" id="manusavi-scheme">
+                <div class="scheme-card">
+                    <div class="scheme-header">
+                        <img src="assets/images/Manusavi.png" alt="Manusavi Logo" class="scheme-logo">
+                        <h3 class="scheme-name">විගමනික</h3><br>
+                    </div>
+                    <div class="scheme-body">
+                        <div class="scheme-description">
+                            <p>“විගමනික” යෝජනා ක්‍රමය වයස අවුරුදු 18-59 අතර සිටින සංක්‍රමණික සේවකයන් සඳහා වන
+                                අතර සාමාජිකයින්ට ඔවුන් විදේශයන්හි සේවය කරන කාල සීමාව අනුව ගෙවීම් විකල්පය තෝරා ගත හැකිය.
+                                විශ්‍රාම වැටුප වයස අවුරුදු 60 සිට ආරම්භ වේ. විශ්‍රාම වැටුප් මුදල සහ ගෙවීමේ විකල්පය
+                                සාමාජිකයාට ඔවුන්ගේ කැමැත්ත මත තීරණය කළ හැකිය.
+                            </p>
+                        </div>
+                        <a href="vigamanika_sin.html" style="text-decoration: none;">
+                            <button class="btn-read-more">
+                                <i class="fas fa-info-circle me-2"></i> වැඩිදුරටත්
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kalakaru Scheme -->
+            <div class="col animate-on-scroll" data-delay="500" id="kalakaru-scheme">
+                <div class="scheme-card">
+                    <div class="scheme-header">
+                        <img src="assets/images/Kalakaru.png" alt="Kalakaru Logo" class="scheme-logo">
+                        <h3 class="scheme-name">කලාකරු</h3><br>
+                    </div>
+                    <div class="scheme-body">
+                        <div class="scheme-description">
+                            <p>කලාකරු යෝජනා ක්‍රමය වයස අවුරුදු 23-55 අතර කලාකරුවාට ඔවුන්ගේ කැමැත්ත පරිදි විශ්‍රාම වැටුප්
+                                මුදල සහ වාරික ගෙවීමේ ක්‍රමය තීරණය කළ හැකිය. අපගේ සාමාජිකත්වය ගණනය කිරීමෙන් පසු SLSSB සෑම
+                                සාමාජිකයෙකුටම රුපියල් 50,000/- ක් වටිනා තනි ස්ථාවර තැන්පතුවකින් විවෘත වේ. ස්ථාවර
+                                තැන්පතුවේ ඇති එකවර මුදල කලාකරුවාට ඔහුගේ පළමු විශ්‍රාම වැටුප සමඟ ලබා දෙනු ඇත.</p>
+                        </div><br><br>
+                        <a href="kalakaru_sin.html" style="text-decoration: none;">
+                            <button class="btn-read-more">
+                                <i class="fas fa-info-circle me-2"></i> වැඩිදුරටත්
+                            </button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seafarer Scheme -->
+            <div class="col animate-on-scroll" data-delay="600" id="seafarer-scheme">
+                <div class="scheme-card">
+                    <div class="scheme-header">
+                        <img src="assets/images/Seafarer.png" alt="Seafarer Logo" class="scheme-logo">
+                        <h3 class="scheme-name">නාවිකයා</h3><br>
+                    </div>
+                    <div class="scheme-body">
+                        <div class="scheme-description">
+                            <p>ශ්‍රී ලංකාව විසින් ප්‍රතිනිර්මාණය කරන ලද 2006 ජාත්‍යන්තර කම්කරු සංවිධානයේ සමුද්‍රීය
+                                කම්කරු සම්මුතියට සහ 1971 අංක 52 දරන වෙළඳ නැව් පනත යටතේ පනවන ලද රෙගුලාසිවලට අනුකූලව
+                                නාවිකයින් සඳහා විශේෂ සමාජ ආරක්ෂණ වැඩපිළිවෙළක් හඳුන්වා දී ඇත.</p>
+                        </div><br><br>
+                        <a href="navikaya_sin.html" style="text-decoration: none;">
+                            <button class="btn-read-more">
+                                <i class="fas fa-info-circle me-2"></i> වැඩිදුරටත්
+                            </button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <!-- Footer Top Area -->
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <!-- About Widget -->
+                    <div class="col-lg-3 col-md-6 footer-widget">
+                        <img src="./assets/images/logo.jpg" alt="Sri Lanka Social Security Board Logo"
+                            class="footer-logo" style="width: 80px; height:200px;">
+                        <p class="text mb-4" style="text-align: justify;">ශ්‍රී ලංකා සමාජ ආරක්ෂණ මණ්ඩලය සියළු
+                            පුරවැසියන්ට ස්ථායී සහ නවෝත්පාදන සමාජ ආරක්ෂණ වැඩසටහන් මඟින්
+                            සමාජ ආරක්ෂාව සහ සුභසාධනය සහතික කිරීමේ අරමුණින් කටයුතු කරයි.</p>
+                        <div class="social-links">
+                            <a href="https://web.facebook.com/ssb.gov.lk?mibextid=ZbWKwL&_rdc=1&_rdr#"
+                                target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="mailto:info@ssb.gov.lk" target="_blank"><i class="fas fa-envelope"></i></a>
+                            <a href="https://www.youtube.com/@slsosebo" target="_blank"><i
+                                    class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/sri_lanka_social_security_boar/" target="_blank"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links Widget -->
+                    <div class="col-lg-3 col-md-6 footer-widget">
+                        <h5>සියලුම සබැඳි</h5>
+                        <ul class="footer-links">
+                            <li><a href="about.html">අප ගැන</a></li>
+                            <li><a href="scheme.html">අපගේ සේවාවන්</a></li>
+                            <li><a href="surekuma.html">සුරැකුම යෝජනා ක්‍රමය</a></li>
+                            <li><a href="arassawa.html">ආරස්සාව යෝජනා ක්‍රමය</a></li>
+                            <li><a href="kalakaru.html">කලාකරු යෝජනා ක්‍රමය</a></li>
+                            <li><a href="vigamanika.html">විගමනික යෝජනා ක්‍රමය</a></li>
+                            <li><a href="nawikaya.html">නාවිකයා යෝජනා ක්‍රමය</a></li>
+                            <li><a href="news.php">පුවත් සහ සිදුවීම්</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Useful Links Widget -->
+                    <div class="col-lg-3 col-md-6 footer-widget">
+                        <h5>ප්‍රයෝජනවත් සබැඳි</h5>
+                        <ul class="footer-links">
+                            <li><a href="right_to_informarion.html">තොරතුරු ලබාගැනීමේ අයිතිය</a></li>
+                            <li><a href="careers.html">රැකියා පුරප්පාඩු</a></li>
+                            <!-- <li><a href="about.html">FAQ</a></li> -->
+                            <!-- <li><a href="#">Privacy Policy</a></li> -->
+                            <li><a href="scheme.html">සේවා නියමයන්</a></li>
+                            <li><a href="contact.html">වෙබ් අඩවි සිතියම</a></li>
+                            <li><a href="https://stateminsamurdhi.gov.lk/" target="_blank">අමාත්‍යංශ වෙබ් අඩවිය</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info Widget -->
+                    <div class="col-lg-3 col-md-6 footer-widget">
+                        <h5>විමසීම්</h5>
+                        <div class="contact-info">
+                            <p><i class="fas fa-map-marker-alt"></i> අංක 18, “සමාජ ආරක්ෂණ පියස” <br>
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;රාජගිරිය පාර, <br>
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;රාජගිරිය.</p>
+                            <p><i class="fas fa-phone-alt"></i> +94 112 886 585 - 86</p>
+                            <p><i class="fas fa-envelope"></i> info@ssb.gov.lk</p>
+                            <p><i class="fas fa-clock"></i> සඳුදා - සිකුරාදා: පෙ.ව. 8:30 - ප.ව. 4:15</p>
+                        </div>
+                        <div class="newsletter-form"><abbr title="Clean Sri Lanka">
+                                <a href="https://cleansrilanka.gov.lk/" target="_blank" rel="noopener noreferrer">
+                                    <img src="./assets/images/Clean Sri Lanka Logo.png" alt="NewsLetter Image"
+                                        class="img-thumbnail"
+                                        style="width: 200px; height: auto; margin-top: 10px;"></a></abbr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Area -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <div class="copyright">
+                            Copyright © 2025 Sri Lanka Social Security Board
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="powered-by">
+                            Powered by Sri Lanka Social Security Board
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="made-with">
+                            Made with <i class="fas fa-heart"></i> by Department of Information Technology, Faculty of
+                            Humanities &
+                            Social Sciences, University of Ruhuna
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- chat bot -->
+      <script id="messenger-widget-b" src="https://cdn.botpenguin.com/website-bot.js" defer>68ef1a6c163de854554fecda,68ef19b7cb64f686dfb5b548</script>
+      <!-- accessibility -->
+      <script src="https://app.embed.im/accessibility.js" defer></script>
+        <!-- Back to Top Button -->
+        <div class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Scroll animation
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+            function checkIfInView() {
+                animateElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+
+            // Run on load
+            checkIfInView();
+
+            // Add scroll event listener
+            window.addEventListener('scroll', checkIfInView);
+
+            // Hover effects for list items
+            const optionItems = document.querySelectorAll('.option-item');
+            optionItems.forEach(item => {
+                item.addEventListener('mouseenter', function () {
+                    const icon = this.querySelector('.option-icon');
+                    icon.style.backgroundColor = 'var(--accent-color)';
+                    icon.style.color = 'var(--navy-blue)';
+                });
+
+                item.addEventListener('mouseleave', function () {
+                    const icon = this.querySelector('.option-icon');
+                    icon.style.backgroundColor = 'var(--navy-blue-lighter)';
+                    icon.style.color = '';
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            // Scroll animation
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+            function checkIfInView() {
+                animateElements.forEach((element, index) => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    const delay = parseInt(element.dataset.delay) || 0;
+
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        setTimeout(() => {
+                            element.classList.add('active');
+                        }, delay);
+                    }
+                });
+            }
+
+            // Run on load
+            window.addEventListener('load', checkIfInView);
+
+            // Add scroll event listener
+            window.addEventListener('scroll', checkIfInView);
+
+            // Button hover effect
+            const buttons = document.querySelectorAll('.btn-read-more');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function () {
+                    this.innerHTML = '<i class="fas fa-arrow-right me-2"></i> පිවිසෙන්න';
+                });
+
+                button.addEventListener('mouseleave', function () {
+                    this.innerHTML = '<i class="fas fa-info-circle me-2"></i> වැඩිදුරටත්';
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const desktopNav = document.querySelector('.desktop-nav');
+
+            mobileToggle.addEventListener('click', function () {
+                desktopNav.classList.toggle('show');
+                this.innerHTML = desktopNav.classList.contains('show')
+                    ? '<i class="fas fa-times"></i>'
+                    : '<i class="fas fa-bars"></i>';
+            });
+
+            // Handle dropdowns on mobile
+            if (window.innerWidth < 992) {
+                const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+                dropdownToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        const dropdownMenu = this.nextElementSibling;
+                        dropdownMenu.classList.toggle('show');
+                    });
+                });
+            }
+
+            // Search button animation
+            const searchBtn = document.querySelector('.search-btn');
+            let isSearchOpen = false;
+
+            searchBtn.addEventListener('click', function () {
+                if (!isSearchOpen) {
+                    this.innerHTML = '<i class="fas fa-times"></i>';
+                    isSearchOpen = true;
+                    // Here you would typically show a search form
+                } else {
+                    this.innerHTML = '<i class="fas fa-search"></i>';
+                    isSearchOpen = false;
+                    // Here you would typically hide the search form
+                }
+            });
+
+            // Highlight active menu item
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+
+        function changeLanguage(language) {
+            document.getElementById('desktopLangDropdown').innerHTML = '<i class="fas fa-globe me-1"></i> ' + language;
+            document.getElementById('mobileLangDropdown').innerHTML = '<i class="fas fa-globe me-1"></i> ' + language;
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            // Back to top button functionality
+            const backToTopBtn = document.querySelector('.back-to-top');
+
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Newsletter form animation
+            const newsletterForm = document.querySelector('.newsletter-form');
+
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const input = this.querySelector('input');
+                    const button = this.querySelector('button');
+
+                    if (input.value.trim() !== '') {
+                        button.innerHTML = '<i class="fas fa-check"></i>';
+                        setTimeout(() => {
+                            button.innerHTML = 'Subscribe';
+                            input.value = '';
+                        }, 2000);
+                    }
+                });
+            }
+        });
+        // Enhanced Digital Clock Function
+        function updateBeautifulClock() {
+            const now = new Date();
+
+            // Time values
+            let hours = now.getHours();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            // Date values
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            const day = days[now.getDay()];
+            const date = now.getDate();
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+
+            // Update the clock elements
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+            document.getElementById('ampm').textContent = ampm;
+
+            document.getElementById('day').textContent = day;
+            document.getElementById('date').textContent = date;
+            document.getElementById('month').textContent = month;
+            document.getElementById('year').textContent = year;
+
+            setTimeout(updateBeautifulClock, 1000);
+        }
+
+        // Initialize the clock when the page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load Orbitron font for the clock (fallback in case the @import doesn't work)
+            const fontLink = document.createElement('link');
+            fontLink.href = 'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap';
+            fontLink.rel = 'stylesheet';
+            document.head.appendChild(fontLink);
+
+            // Start the digital clock
+            updateBeautifulClock();
+
+            // Rest of your existing DOMContentLoaded code remains here
+        });
+
+        const searchData = [
+            { title: "Home Page", url: "/home" },
+            { title: "About Us", url: "/about" },
+            { title: "Services", url: "/services" },
+            { title: "Products", url: "/products" },
+            { title: "Contact Us", url: "/contact" },
+            { title: "Blog", url: "/blog" },
+            { title: "Support", url: "/support" },
+            { title: "Frequently Asked Questions", url: "/faq" }
+        ];
+
+        const searchForm = document.getElementById("search-form");
+        const searchInput = document.getElementById("search-input");
+        const searchResults = document.getElementById("search-results");
+
+        // Show/hide search form
+        function toggleSearch() {
+            searchForm.classList.toggle("active");
+            if (searchForm.classList.contains("active")) {
+                searchInput.focus();
+            }
+        }
+
+        // Live search function
+        searchInput.addEventListener("input", function () {
+            const query = this.value.toLowerCase();
+            searchResults.innerHTML = "";
+
+            if (query.trim() === "") return;
+
+            const filtered = searchData.filter(item =>
+                item.title.toLowerCase().includes(query)
+            );
+
+            if (filtered.length === 0) {
+                searchResults.innerHTML = `<div class="no-results">No results found</div>`;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const link = document.createElement("a");
+                link.classList.add("search-result-item");
+                link.textContent = item.title;
+                link.href = item.url; // ✅ clickable link
+                searchResults.appendChild(link);
+            });
+        });
+
+        // Close search form when clicking outside
+        document.addEventListener("click", function (e) {
+            if (!searchForm.contains(e.target) && !e.target.closest(".search-btn")) {
+                searchForm.classList.remove("active");
+            }
+        });
+
+    </script>
+</body>
+
+</html>
