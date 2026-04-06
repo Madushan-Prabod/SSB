@@ -3,21 +3,26 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home3/ssbgovlk/public_html/
 
-    # Copy all root files (html, php, etc.)
-    - /bin/cp *.html $DEPLOYPATH
-    - /bin/cp *.php $DEPLOYPATH
-    - /bin/cp .htaccess $DEPLOYPATH
+    # Copy core files
+    - /bin/cp index.html $DEPLOYPATH
     - /bin/cp sitemap.xml $DEPLOYPATH
+    - /bin/cp .htaccess $DEPLOYPATH
+
+    # Copy PHP files (explicit ones)
+    - /bin/cp db_connect.php $DEPLOYPATH
+    - /bin/cp gallery.php $DEPLOYPATH
+    - /bin/cp news.php $DEPLOYPATH
+    - /bin/cp view_event.php $DEPLOYPATH
 
     # Copy important folders
     - /bin/cp -R admin $DEPLOYPATH
     - /bin/cp -R carasoul $DEPLOYPATH
 
-    # Copy safe asset parts only
+    # Copy only SAFE asset folders (no uploads, no PDFs)
     - /bin/cp -R assets/api $DEPLOYPATH/assets/
     - /bin/cp -R assets/data $DEPLOYPATH/assets/
     - /bin/cp -R assets/js $DEPLOYPATH/assets/
     - /bin/cp -R assets/images $DEPLOYPATH/assets/
 
-    # Copy well-known (SSL etc.)
+    # Copy SSL verification folder
     - /bin/cp -R .well-known $DEPLOYPATH

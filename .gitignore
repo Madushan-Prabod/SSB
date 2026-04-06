@@ -1,12 +1,11 @@
-# Ignore entire assets folder (recommended)
-"assets/"
+# Ignore ONLY server-uploaded folders
+assets/uploads/
+assets/Menu - Downloads/
+assets/documents/
 
-# Ignore file types
+# Ignore file types (large/static)
 *.pdf
 *.zip
-*.jpg
-*.png
-*.jpeg
 *.docx
 
 # Ignore logs
@@ -15,5 +14,6 @@ error_log
 
 # Optional
 .env
-"node_modules/"
-"vendor/"
+node_modules/
+vendor/
+assets/images/
