@@ -160,7 +160,7 @@
       transition: all 0.3s ease;
       position: relative;
       z-index: 1001;
-      background-color:#0f2a3e;
+      background-color: #0f2a3e;
       /* ensure items are above menu background */
     }
 
@@ -1608,6 +1608,108 @@
       }
     }
 
+    /* Visitor Counter Styles */
+    .visitor-counter-widget {
+      background: linear-gradient(135deg, var(--navy-blue) 0%, var(--navy-blue-light) 100%);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      margin: 40px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .visitor-counter-widget::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(100, 255, 218, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .visitor-counter-title {
+      color: var(--accent-color);
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      text-align: center;
+      position: relative;
+    }
+
+    .visitor-counter-title i {
+      margin-right: 10px;
+    }
+
+    .visitor-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid rgba(100, 255, 218, 0.1);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-color);
+      box-shadow: 0 5px 20px rgba(100, 255, 218, 0.2);
+    }
+
+    .stat-icon {
+      font-size: 36px;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      color: var(--text-color);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      opacity: 0.8;
+    }
+
+    .stat-value {
+      color: var(--accent-color);
+      font-size: 32px;
+      font-weight: 700;
+      font-family: 'Courier New', monospace;
+    }
+
+    .stat-subtext {
+      color: var(--text-color);
+      font-size: 12px;
+      margin-top: 5px;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 767.98px) {
+      .visitor-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .visitor-counter-title {
+        font-size: 20px;
+      }
+
+      .stat-value {
+        font-size: 28px;
+      }
+    }
+
     /* Make sure we load Orbitron font for the clock */
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
@@ -1785,11 +1887,10 @@
           <img src="./carasoul/Home Banner 06.jpg" class="d-block w-100" alt="..." style="width: 100vw; height: auto;">
         </div>
         <div class="carousel-item">
-            <img src="./carasoul/Home Banner 05.jpg" class="d-block w-100" alt="..." style="width: 100vw;">
+          <img src="./carasoul/Home Banner 05.jpg" class="d-block w-100" alt="..." style="width: 100vw;">
         </div>
         <div class="carousel-item">
-            <img src="./carasoul/Home Banner 07.jpg" class="d-block w-100" alt="..."
-              style="width: 100vw;">
+          <img src="./carasoul/Home Banner 07.jpg" class="d-block w-100" alt="..." style="width: 100vw;">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -2118,6 +2219,42 @@
     </div>
   </section>
 
+  <!-- Visitor Counter Widget -->
+  <div class="container my-5">
+    <div class="visitor-counter-widget">
+      <h2 class="visitor-counter-title">
+        <i class="fas fa-users"></i>
+        Visitor Statistics
+      </h2>
+      <div class="visitor-stats">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="stat-label">Total Visits</div>
+          <div class="stat-value" id="total-visits">0</div>
+          <div class="stat-subtext">All time visitors(From Jan 2026)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-calendar-day"></i>
+          </div>
+          <div class="stat-label">Today's Visits</div>
+          <div class="stat-value" id="daily-visits">0</div>
+          <div class="stat-subtext">Visitors today</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="stat-label">Last Visit</div>
+          <div class="stat-value" style="font-size: 16px;" id="last-visit">-</div>
+          <div class="stat-subtext">Most recent visitor</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer class="footer">
     <!-- Footer Top Area -->
     <div class="footer-top">
@@ -2214,9 +2351,9 @@
       </div>
     </div>
     <!-- chat bot -->
-      <script id="messenger-widget-b" src="https://cdn.botpenguin.com/website-bot.js" defer>68ef1a6c163de854554fecda,68ef19b7cb64f686dfb5b548</script>
-      <!-- accessibility -->
-      <script src="https://app.embed.im/accessibility.js" defer></script>
+    <script id="messenger-widget-b" src="https://cdn.botpenguin.com/website-bot.js" defer>68ef1a6c163de854554fecda,68ef19b7cb64f686dfb5b548</script>
+    <!-- accessibility -->
+    <script src="https://app.embed.im/accessibility.js" defer></script>
     <!-- Back to Top Button -->
     <div class="back-to-top">
       <i class="fas fa-arrow-up"></i>
@@ -2371,9 +2508,10 @@
         searchForm.classList.remove("active");
       }
     });
-
-
   </script>
+
+  <!-- Visitor Counter Script -->
+  <script src="./assets/js/visitor-counter.js"></script>
 </body>
 
 </html>
