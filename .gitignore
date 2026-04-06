@@ -17,3 +17,4 @@ error_log
 node_modules/
 vendor/
 assets/images/
+db_connect.php
