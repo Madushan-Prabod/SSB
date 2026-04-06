@@ -1399,9 +1399,9 @@
           <i class="fas fa-globe me-1"></i> English
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="./gallery.html">English</a></li>
-          <li><a class="dropdown-item" href="./gallery_sin.html">සිංහල</a></li>
-          <li><a class="dropdown-item" href="./gallery_tam.html">தமிழ்</a></li>
+          <li><a class="dropdown-item" href="./gallery.php">English</a></li>
+          <li><a class="dropdown-item" href="./gallery_sin.php">සිංහල</a></li>
+          <li><a class="dropdown-item" href="./gallery_tam.php">தமிழ்</a></li>
         </ul>
       </div>
 
