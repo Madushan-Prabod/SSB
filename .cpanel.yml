@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home3/ssbgovlk/public_html/
+    - /bin/rsync -av --exclude '.git' \
+        --exclude 'assets/' \
+        ./ $DEPLOYPATH

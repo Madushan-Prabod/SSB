@@ -1,7 +1,19 @@
-"assets/" 
+# Ignore entire assets folder (recommended)
+"assets/"
+
+# Ignore file types
 *.pdf
 *.zip
 *.jpg
 *.png
 *.jpeg
 *.docx
+
+# Ignore logs
+*.log
+error_log
+
+# Optional
+.env
+"node_modules/"
+"vendor/"
