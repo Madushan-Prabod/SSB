@@ -2,6 +2,22 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home3/ssbgovlk/public_html/
-    - /bin/rsync -av --exclude '.git' \
-        --exclude 'assets/' \
-        ./ $DEPLOYPATH
+
+    # Copy all root files (html, php, etc.)
+    - /bin/cp *.html $DEPLOYPATH
+    - /bin/cp *.php $DEPLOYPATH
+    - /bin/cp .htaccess $DEPLOYPATH
+    - /bin/cp sitemap.xml $DEPLOYPATH
+
+    # Copy important folders
+    - /bin/cp -R admin $DEPLOYPATH
+    - /bin/cp -R carasoul $DEPLOYPATH
+
+    # Copy safe asset parts only
+    - /bin/cp -R assets/api $DEPLOYPATH/assets/
+    - /bin/cp -R assets/data $DEPLOYPATH/assets/
+    - /bin/cp -R assets/js $DEPLOYPATH/assets/
+    - /bin/cp -R assets/images $DEPLOYPATH/assets/
+
+    # Copy well-known (SSL etc.)
+    - /bin/cp -R .well-known $DEPLOYPATH
